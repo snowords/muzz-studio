@@ -1,9 +1,11 @@
 <template>
-  <main class="px-4 py-10 text-center text-gray-700 dark:text-gray-200">
-    <RouterView />
-    <Footer />
-    <div class="mt-5 mx-auto text-center opacity-25 text-sm">
-      [Default Layout]
+  <main 
+    flex="~ col"
+    px-4 py-10 h-screen text-center text-gray-700 dark:text-gray-200
+  >
+    <div flex-grow >
+      <RouterView />
     </div>
+    <Footer flex-grow-0 />
   </main>
 </template>
