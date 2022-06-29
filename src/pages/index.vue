@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const menus = ref<string[]>(["Game", "Bookmark"])
+const menus = ref<string[]>(["Game", "Bookmark", "Book"])
 
 const router = useRouter()
 const go = (name: string) => {

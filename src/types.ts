@@ -10,3 +10,9 @@ export interface BlockState {
   flagged?: boolean
   adjacentMines: number
 }
+
+export interface BookInfo {
+  name: string
+  auther: string
+  word: number
+}
