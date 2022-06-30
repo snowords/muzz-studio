@@ -10,7 +10,7 @@ const go = (name: string) => {
 
 </script>
 <template>
-  <div text-3xl>Muzz Studio</div>
+  <div text-3xl text-center>Muzz Studio</div>
   <div
     p-6 max-w-100 ma
     justify-center

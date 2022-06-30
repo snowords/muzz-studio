@@ -6,6 +6,7 @@ import generateSitemap from 'vite-ssg-sitemap'
 import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Markdown from 'vite-plugin-md'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
@@ -48,6 +49,7 @@ export default defineConfig({
         '@vueuse/core',
       ],
       dts: 'src/auto-imports.d.ts',
+      resolvers: [ElementPlusResolver()],
     }),
 
     // https://github.com/antfu/unplugin-vue-components
@@ -57,6 +59,7 @@ export default defineConfig({
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       dts: 'src/components.d.ts',
+      resolvers: [ElementPlusResolver()],
     }),
 
     // https://github.com/antfu/unocss

@@ -1,17 +1,12 @@
 <script setup lang="ts">
-import type { BookInfo } from '~/types'
+import type { BookList } from '~/types'
 import { service } from '~/composables/service'
-
-interface BookList {
-  attributes: BookInfo
-  id: number
-}
 
 const bookList = ref<BookList[]>([])
 
 service({
   method: 'get',
-  url: '/books'
+  url: '/api/books?populate=*'
 }).then(response => {
   console.log(response.data)
   bookList.value = response.data.data
@@ -20,21 +15,29 @@ service({
 const showInfo = (id: number) => {
   service({
     method: 'get',
-    url: '/books/' + id,
+    url: '/api/books/' + id,
   }).then(response => {
     console.log(response.data)
   })
 }
 
+const imageUrl = import.meta.env.VITE_CMS_URL
+
 </script>
 
 <template>
-  Book
-  <div grid="~ cols-3 gap-10" h20 my10 >
+  <div text-center>
+    Book
+  </div>
+  <AddBook />
+  <div grid="~ cols-3 gap-10" h20 my10 place-items-center >
     <div cursor-pointer v-for="({ attributes, id }) in bookList" @click="showInfo(id)">
+      <div>
+        <img h40 inline-block my-6 p6 rounded-md class="bg-gray-500/50" :src="imageUrl + attributes.cover.data.attributes.url" />
+      </div>
       {{ attributes.name }}
       {{ attributes.auther }}
-      {{ attributes.word }}w字
+      <!-- {{ attributes.word }}w字 -->
     </div>
   </div>
 </template>

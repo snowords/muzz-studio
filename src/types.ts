@@ -11,8 +11,24 @@ export interface BlockState {
   adjacentMines: number
 }
 
+export interface ImageInfo {
+  data: {
+    attributes: {
+      url: string
+      name: string
+    }
+    id: number
+  }
+}
+
 export interface BookInfo {
+  cover: ImageInfo
   name: string
   auther: string
   word: number
+}
+
+export interface BookList {
+  attributes: BookInfo
+  id: number
 }
