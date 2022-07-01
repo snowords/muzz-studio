@@ -29,15 +29,14 @@ const imageUrl = import.meta.env.VITE_CMS_URL
   <div text-center>
     Book
   </div>
-  <AddBook />
-  <div grid="~ cols-3 gap-10" h20 my10 place-items-center >
-    <div cursor-pointer v-for="({ attributes, id }) in bookList" @click="showInfo(id)">
-      <div>
-        <img h40 inline-block my-6 p6 rounded-md class="bg-gray-500/50" :src="imageUrl + attributes.cover.data.attributes.url" />
+  <div grid="~ cols-1 md:cols-3 gap-10" h20 my10 justify-items-center >
+    <div cursor-pointer flex v-for="({ attributes, id }) in bookList" @click="showInfo(id)">
+      <img h40 p6 rounded-md class="bg-gray-500/50" :src="imageUrl + attributes.cover.data.attributes.url" />
+      <div inline-block mx-4>
+        <div>name：{{ attributes.name }}</div>
+        <div>auther：{{ attributes.auther }}</div>
+        <div>word：{{ attributes.word }}w</div>
       </div>
-      {{ attributes.name }}
-      {{ attributes.auther }}
-      <!-- {{ attributes.word }}w字 -->
     </div>
   </div>
 </template>
