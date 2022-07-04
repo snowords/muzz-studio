@@ -32,3 +32,13 @@ export interface BookList {
   attributes: BookInfo
   id: number
 }
+
+export interface BookMarkInfo {
+  title: string
+  url: string
+}
+
+export interface BookMarkList {
+  attributes: BookMarkInfo
+  id: number
+}
