@@ -3,22 +3,27 @@ import type { BookMarkList } from '~/types'
 import { service } from '~/composables/service'
 
 const router = useRouter()
+const route = useRoute()
 
-const props = defineProps<{ folder: number }>()
+console.log(route)
+console.log(route.query.folderId)
 
 const list = ref<BookMarkList[]>([])
 
 service({
   method: 'get',
-  url: '/api/bookmarks/' + props.folder + '?populate=*'
+  url: '/api/bookmarks/' + route.query.folderId + '?populate=*'
 }).then(response => {
   console.log(response.data.data)
   list.value = response.data.data.attributes.items
 })
 
-const openFolder = (id) => {
+const openFolder = (id: number) => {
   console.log(id)
-  router.push(`/bookmark/${id}`)
+  router.push({
+    path: '/bookmark/item',
+    query: { itemId: id}
+  })
 }
 
 </script>
