@@ -23,25 +23,6 @@ const showInfo = (id: number) => {
 
 const imageUrl = import.meta.env.VITE_CMS_URL
 
-
-const item = [2018, 2019, 2020]
-
-const objItem = [
-  {
-    label: '全部',
-    value: ''
-  }
-]
-
-item.map(item => {
-  objItem.push({
-    label: item,
-    value: item
-  })
-})
-
-const select =ref('')
-
 </script>
 
 <template>
@@ -56,16 +37,6 @@ const select =ref('')
         <div>auther：{{ attributes.auther }}</div>
         <div>word：{{ attributes.word }}w</div>
       </div>
-    </div>
-    <div>
-      <div>选择结果： {{ select }} </div>
-      <el-select w200px v-model="select" placeholder="请选择年份">
-        <el-option 
-          v-for="(item, index) in objItem" 
-          :key="index" 
-          :label="item.label" 
-          :value="item.value" />
-      </el-select>
     </div>
   </div>
 
