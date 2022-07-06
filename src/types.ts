@@ -44,3 +44,8 @@ export interface BookMarkList {
   type: string
   item: BookMarkInfo
 }
+
+export interface MenuItem {
+  name: string
+  menuIcon: string
+}

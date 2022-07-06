@@ -5,6 +5,7 @@ import { service } from '~/composables/service'
 const list = ref<BookMarkList[]>([])
 const iframeSrc = ref<string>('')
 
+const router = useRouter()
 useStorage('bookmark-list', list)
 
 service({
@@ -15,18 +16,37 @@ service({
   list.value = response.data.data.attributes.content
 })
 
-
-const openUrl = (data) => {
-  // window.open(data.href, '_blank')
-  iframeSrc.value = data.href
+const copy = (url: string) => {
+  navigator.clipboard.writeText(url)
+  console.log('copy', url)
+  ElMessage({
+    message: 'Copy url success!',
+    type: 'success',
+  })
 }
 
+const preview = (url: string) => {
+  // window.open(data.href, '_blank')
+  console.log('open', url)
+  iframeSrc.value = url
+}
+
+const openUrl = (url: string) => {
+  window.open(url, '_blank')
+}
+
+const goHome = () => {
+  router.push('/')
+}
 </script>
 
 <template>
   <div flex="~ cols-2">
     <div p2 h-screen overflow-auto flex-shrink-0>
-      <div text-center text-2xl my6>
+      <button icon-btn @click="goHome">
+        <div i-carbon-home />
+      </button>
+      <div text-center text-2xl mb-2>
         Bookmark
       </div>
       <el-tree
@@ -35,16 +55,16 @@ const openUrl = (data) => {
         accordion
       >
         <template #default="{ node, data }">
-          <span v-if="data.type === 'link'" @click="openUrl(data)"  class="group">
+          <span v-if="data.type === 'link'" class="group">
             {{ node.label }}
             <span invisible ml-4 inline-flex gap-1 group-hover:visible>
-              <button icon-btn title="copy link">
+              <button icon-btn title="copy link" @click="copy(data.href)">
                 <div i-carbon-copy />
               </button>
-              <button icon-btn title="preview">
+              <button icon-btn title="preview" @click="preview(data.href)">
                 <div i-carbon-content-view />
               </button>
-              <button icon-btn title="open in blank">
+              <button icon-btn title="open in blank" @click="openUrl(data.href)" >
                 <div i-carbon-cics-region-routing />
               </button>
             </span>
