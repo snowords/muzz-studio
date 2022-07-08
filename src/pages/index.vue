@@ -12,6 +12,10 @@ const menus: MenuItem[] = [
   {
     name: "Book",
     menuIcon: "i-carbon-book"
+  },
+  {
+    name: 'Clock',
+    menuIcon: 'i-carbon-timer'
   }
 ]
 

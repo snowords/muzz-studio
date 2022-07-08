@@ -6,6 +6,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Confetti: typeof import('./components/Confetti.vue')['default']
     Counter: typeof import('./components/Counter.vue')['default']
+    ElTimeSelect: typeof import('element-plus/es')['ElTimeSelect']
     ElTree: typeof import('element-plus/es')['ElTree']
     Footer: typeof import('./components/Footer.vue')['default']
     MineBlock: typeof import('./components/MineBlock.vue')['default']
