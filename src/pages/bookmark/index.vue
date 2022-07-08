@@ -55,9 +55,9 @@ const goHome = () => {
         accordion
       >
         <template #default="{ node, data }">
-          <span v-if="data.type === 'link'" class="group">
+          <span v-if="data.type === 'link'" class="group" flex>
             {{ node.label }}
-            <span invisible ml-4 inline-flex gap-1 group-hover:visible>
+            <span  invisible ml-4 inline-flex gap-1 group-hover:visible>
               <button icon-btn title="copy link" @click="copy(data.href)">
                 <div i-carbon-copy />
               </button>

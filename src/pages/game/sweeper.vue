@@ -37,7 +37,7 @@ watchEffect(() => {
 
 <template>
   <div>
-    <div text-2xl>
+    <div text-2xl text-center m4>
       Minesweeper
     </div>
     <div flex="~ gap1" justify-center p4>

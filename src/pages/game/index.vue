@@ -12,9 +12,11 @@ const go = (name: string) => {
 
 </script>
 <template>
-  <div text-3xl>Game Menu</div>
-  <div class="text-gray-400/50">
-    Choose a game and enjoy!
+  <div text-center m4>
+    <div text-3xl>Game Menu</div>
+    <div class="text-gray-400/50">
+      Choose a game and enjoy!
+    </div>
   </div>
   <div 
     p-6 max-w-100 ma
