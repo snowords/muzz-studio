@@ -4,6 +4,7 @@
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Clock: typeof import('./components/Clock.vue')['default']
     Confetti: typeof import('./components/Confetti.vue')['default']
     Counter: typeof import('./components/Counter.vue')['default']
     ElTimeSelect: typeof import('element-plus/es')['ElTimeSelect']
@@ -12,6 +13,7 @@ declare module '@vue/runtime-core' {
     README: typeof import('./components/README.md')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Undefined: typeof import('./components/index.vue')['default']
   }
 }
 
