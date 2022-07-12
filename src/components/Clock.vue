@@ -79,6 +79,5 @@ const edit = useToggle(show)
         {{ restTime }}
       </div>
     </div>
-
   </div>
 </template>

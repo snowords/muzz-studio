@@ -12,7 +12,7 @@ const { t } = useI18n()
 
 <template>
   <nav text-xl mt-6>
-    <RouterLink class="icon-btn mx-2" to="/" :title="t('button.home')">
+    <RouterLink class="icon-btn mx-2" to="/home" :title="t('button.home')">
       <div i-carbon-campsite />
     </RouterLink>
 
