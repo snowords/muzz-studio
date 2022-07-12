@@ -52,7 +52,7 @@ const edit = useToggle(show)
   <div text-2xl text-center my-6>
     下班倒计时
   </div>
-  <div max-w-100 m-auto flex="~ col" gap-8>
+  <div max-w-100 m-auto p6 flex="~ col" gap-10>
     <div leading-loose>
       今天是
       <div text-3xl>
