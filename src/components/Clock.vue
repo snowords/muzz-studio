@@ -49,7 +49,7 @@ const edit = useToggle(show)
 
 </script>
 <template>
-  <div text-2xl text-center my-6>
+  <div text-2xl text-center mt-6>
     下班倒计时
   </div>
   <div max-w-100 m-auto p6 flex="~ col" gap-10>
