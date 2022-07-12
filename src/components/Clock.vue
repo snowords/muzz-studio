@@ -53,12 +53,6 @@ const edit = useToggle(show)
     下班倒计时
   </div>
   <div max-w-100 m-auto p6 flex="~ col" gap-10>
-    <div leading-loose>
-      今天是
-      <div text-3xl>
-        {{ weekDay }}
-      </div>
-    </div>
     <div>
       <div flex leading-loose>
         距离下班
@@ -77,6 +71,12 @@ const edit = useToggle(show)
       </div>
       <div text-4xl>
         {{ restTime }}
+      </div>
+    </div>
+    <div leading-loose>
+      今天是
+      <div text-3xl>
+        {{ weekDay }}
       </div>
     </div>
   </div>
