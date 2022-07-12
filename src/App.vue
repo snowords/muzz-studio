@@ -6,6 +6,8 @@ useHead({
   title: 'Muzz Studio',
   meta: [
     { name: 'description', content: 'Opinionated Vite Starter Template' },
+    { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
+    { name: 'theme-color', content: '#000000', media: '(prefers-color-scheme: dark)' },
   ],
 })
 </script>
