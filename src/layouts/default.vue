@@ -6,6 +6,6 @@
     <div flex-grow >
       <RouterView />
     </div>
-    <Footer flex-grow-0 text-center/>
+    <Footer flex-grow-0 text-center mb-4/>
   </main>
 </template>
