@@ -47,10 +47,10 @@ function getBlockClass(block: BlockState) {
     @mousedown="whichButtons"
   >
     <template v-if="block.flagged">
-      <div i-mdi-flag text-red />
+      <div i-carbon-flag-filled text-red />
     </template>
-    <template v-else-if="block.revealed || isDev">
-      <div v-if="block.mine" i-mdi-mine />
+    <template v-else-if="block.revealed">
+      <div v-if="block.mine" i-carbon-uv-index-filled />
       <div v-else font-600>
         {{ block.adjacentMines }}
       </div>

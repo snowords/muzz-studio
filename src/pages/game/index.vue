@@ -13,7 +13,7 @@ const go = (name: string) => {
 </script>
 <template>
   <div text-center m4>
-    <div text-3xl>Game Menu</div>
+    <div colorful-text inline-block text-3xl>Game Menu</div>
     <div class="text-gray-400/50">
       Choose a game and enjoy!
     </div>

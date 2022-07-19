@@ -1,6 +1,15 @@
+import { ElMessage } from 'element-plus'
 import type { Ref } from 'vue'
-// import type createSeedrandom from 'seedrandom'
-import type { BlockState } from '~/types'
+import { ref } from 'vue'
+
+interface BlockState {
+  x: number
+  y: number
+  revealed: boolean
+  mine?: boolean
+  flagged?: boolean
+  adjacentMines: number
+}
 
 const directions = [
   [1, 1],
@@ -215,7 +224,7 @@ export class GamePlay {
     if (status === 'lost') {
       this.showAllMines()
       setTimeout(() => {
-        alert('lost')
+        ElMessage.error('Game Over!')
       }, 10)
     }
   }

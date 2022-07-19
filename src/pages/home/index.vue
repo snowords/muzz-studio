@@ -27,8 +27,12 @@ const go = (name: string) => {
 }
 
 </script>
-<template>
-  <div text-3xl text-center py-2>Muzz Studio</div>
+<template>  
+  <div mt-6 text-center>
+    <span colorful-text inline-clock>
+      Muzz Studio
+    </span>
+  </div>
   <div
     p-6 max-w-100 ma
     justify-center

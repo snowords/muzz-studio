@@ -1,7 +1,11 @@
 <script setup lang="ts">
-import { default as dayjs } from 'dayjs'
+import Confetti from './Confetti.vue'
+import dayjs from 'dayjs'
+import { ref, computed } from 'vue'
+import { useNow, useStorage, useToggle } from '@vueuse/core'
 
 const show = ref(false)
+const workOver = ref(false)
 
 const now = computed(() => dayjs(useNow().value))
 const end = ref('17:30')
@@ -11,11 +15,11 @@ const endMinute = computed(() => parseInt(end.value.split(':')[1]))
 
 const endPoint = computed(() => now.value.hour(endHour.value).minute(endMinute.value).second(0).millisecond(0))
 
-function addZero(n) {
+function addZero(n: number) {
   return n < 10 ? '0' + n : n
 }
 
-function minusTime(diff) {
+function minusTime(diff: number) {
   const hour = Math.floor(diff / 3600000)
   const minute = Math.floor((diff % 3600000) / 60000)
   const second = Math.floor(((diff % 3600000) % 60000) / 1000)
@@ -23,12 +27,13 @@ function minusTime(diff) {
   return `${addZero(hour)}:${addZero(minute)}:${addZero(second)}:${addZero(millisecond)}`
 }
 
-
-
 const restTime = computed(() => {
   const diff = endPoint.value.diff(now.value)
   if (diff < 0)
+  {
+    workOver.value = true
     return '下班了~~~'
+  }
   else
     return minusTime(diff)
 })
@@ -49,10 +54,12 @@ const edit = useToggle(show)
 
 </script>
 <template>
-  <div text-2xl text-center mt-6>
-    下班倒计时
+  <div mt-6 text-center>
+    <span colorful-text inline-clock>
+      下班倒计时
+    </span>
   </div>
-  <div max-w-100 m-auto p6 flex="~ col" gap-10>
+  <div max-w-100 m-auto p6 text-left flex="~ col" gap-10>
     <div>
       <div flex leading-loose>
         距离下班
@@ -69,7 +76,7 @@ const edit = useToggle(show)
           />
         </div>
       </div>
-      <div text-4xl>
+      <div colorful-text inline-block text-4xl>
         {{ restTime }}
       </div>
     </div>
@@ -80,4 +87,5 @@ const edit = useToggle(show)
       </div>
     </div>
   </div>
+  <Confetti :passed="workOver" />
 </template>
