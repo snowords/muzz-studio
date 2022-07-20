@@ -2,7 +2,7 @@
   <main 
     flex="~ col"
     h-screen text-gray-700 dark:text-gray-200 
-    class="bg-[url(https://onedrive-vercel-index-git-main-snowords.vercel.app/api/raw/?path=/Muzz/bg.jpg)] dark:bg-[url(https://onedrive-vercel-index-git-main-snowords.vercel.app/api/raw/?path=/Muzz/bg-dark.jpg)]  bg-no-repeat bg-cover bg-center"
+    class="bg-[url(/bg.png)] dark:bg-[url(/bg-dark.png)]  bg-no-repeat bg-cover bg-center"
   >
     <div flex-grow >
       <RouterView />
